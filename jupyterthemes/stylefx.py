@@ -223,6 +223,7 @@ def style_layout(style_less,
                  cursorwidth=2,
                  cursorcolor='default',
                  cellwidth='980',
+                 cellwidth2='980',
                  lineheight=170,
                  margins='auto',
                  vimext=False,
@@ -282,6 +283,7 @@ def style_layout(style_less,
 
     style_less += '@container-margins: {};\n'.format(margins)
     style_less += '@cell-width: {}; \n'.format(cellwidth)
+    style_less += '@cell-width2: {}; \n'.format(cellwidth2)
     style_less += '@cc-line-height: {}%; \n'.format(lineheight)
     style_less += '@text-cell-bg: {}; \n'.format(textcell_bg)
     style_less += '@cc-prompt-width: {}ex; \n'.format(promptMinWidth)
