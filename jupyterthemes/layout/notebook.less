@@ -280,7 +280,12 @@ body > #header {
 .item_icon {
     color: @item-blue;
     font-size: 13pt;
-    vertical-align: middle;
+    vertical-align: top;
+    padding-top:10px;
+}
+
+.item_modified , .item_name{
+    padding-top:2px;
 }
 .list_item input:not([type="checkbox"]) {
     padding-right: 0px;
@@ -686,7 +691,8 @@ div.notification_widget.info,
     display: inherit;
 }
 .item_buttons .running-indicator {
-    padding-top: 4px;
+    padding-top: 0px;
+    margin-right: 40px;
     color: @item-green;
     font-family: @notebook-fontfamily;
     text-rendering: auto;
