@@ -2,15 +2,19 @@
     position: absolute;
     z-index: 110;
     overflow: hidden;
-    border: medium solid @prompt-line;
+    border: 0px solid @dropdown-bg;
+    border-radius: 12px !important;
+    background-color: @dropdown-bg;
+    background: @dropdown-bg;
+    -webkit-backdrop-filter: blur(10px);
     .corner-all;
     box-shadow: none;
     line-height: 1;
 }
 
 .completions select {
-    background: @cc-input-bg;
-    background-color: @cc-input-bg;
+    -webkit-appearance: none;
+    background: transparent;
     outline: none;
     border: none;
     padding: 0px;
@@ -21,4 +25,11 @@
     font-size: @monofontsize;
     color: @cc-input-fg;
     width: auto;
+    overflow-y: auto;
 }
+
+.completions select option {
+    color: @cc-input-fg;
+}
+
+.completions select::-webkit-scrollbar {display:none;}
