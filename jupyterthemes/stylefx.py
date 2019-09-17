@@ -126,7 +126,7 @@ def set_font_properties(style_less,
                         nbfontsize=13,
                         prfontsize=95,
                         dffontsize=93,
-                        outfontsize=85,
+                        outfontsize=95,
                         mathfontsize=100,
                         dfonts=False):
     """Parent function for setting notebook, text/md, and

@@ -240,9 +240,10 @@ body > #header #header-container {
     -webkit-box-sizing: border-box;
 }
 body > #header {
-    background: @notebook-bg;
-    background-color: @notebook-bg;
-    position: relative;
+    // background: @notebook-bg;
+    background-color: transparent; //@notebook-bg;
+    position: absolute;
+    top:0px;
     z-index: 100;
 }
 .list_container {
@@ -255,21 +256,11 @@ body > #header {
     border-bottom: 1px solid @selected-third;
     font-size: @nb-fontsize;
 }
-.list_header > div {
+.list_header > div, .list_item > div {
     padding-top: 6px;
     padding-bottom: 2px;
     padding-left: 0px;
 }
-.list_item {
-    position: relative;
-    min-height: 70px;
-}
-
-.list_item > div {
-    position: absolute;
-    top: 23%;
-}
-
 .list_header > div .item_link,
 .list_item > div .item_link {
     margin-left: -1px;
@@ -280,17 +271,12 @@ body > #header {
 .item_icon {
     color: @item-blue;
     font-size: 13pt;
-    vertical-align: top;
-    padding-top:10px;
-}
-
-.item_modified , .item_name{
-    padding-top:2px;
+    vertical-align: middle;
 }
 .list_item input:not([type="checkbox"]) {
     padding-right: 0px;
     height: 1.75em;
-    // width: 25%;
+    width: 25%;
     margin: 0px 0 0;
     margin-top: 0px;
 }
@@ -301,7 +287,6 @@ body > #header {
     font-size: 12pt;
     display: inline-table;
     position: static;
-    min-width: 60%;
 }
 #button-select-all {
     height: 34px;
@@ -326,7 +311,6 @@ body > #header {
 }
 button#tree-selector-btn {
     height: 34px;
-    width: 40px;
     font-size: @nb-fontsize-sub;
     border: none;
     left: 0px;
@@ -408,11 +392,6 @@ ul#tabs a {
     border-color: transparent;
     text-shadow: none !important;
     border: 2px solid transparent;
-    padding-left: @cell-width2;
-}
-
-.nav-tabs > li {
-    z-index: 100;
 }
 
 .nav-tabs > li > a:active,
@@ -482,6 +461,7 @@ div#notebook {
 }
 #notebook-container {
     padding: 13px 2px;
+    padding-top: 40px;
     background-color: @notebook-bg;
     min-height: 0px;
     box-shadow: none;
@@ -502,17 +482,11 @@ div#ipython-main-app.container {
     margin-left: auto;
 }
 div#menubar-container {
-    // width: 100%;
-    padding-left: @cell-width2;
+    width: 100%;
+    width: @cell-width;
 }
 div#header-container {
     width: @cell-width;
-    margin: 0px;
-    position: absolute;
-}
-
-#notebook_name{
-    // display: none;
 }
 
 /********************************************************/
@@ -521,21 +495,21 @@ div#header-container {
 .notebook_app #header,
 .edit_app #header {
     box-shadow: none !important;
-    background-color: @notebook-bg;
-    border-bottom: 2px solid @selected-third;
+    // background-color: @notebook-bg;
+    // border-bottom: 2px solid @selected-third;
 }
 #header,
 .edit_app #header {
     font-family: @notebook-fontfamily;
     font-size: @nb-fontsize;
     box-shadow: none;
-    background-color: @notebook-bg;
+    // background-color: @notebook-bg;
 }
-#header .header-bar,
-.edit_app #header .header-bar {
-    background: @notebook-bg;
-    background-color: @notebook-bg;
-}
+// #header .header-bar,
+// .edit_app #header .header-bar {
+//     background: @notebook-bg;
+//     background-color: @notebook-bg;
+// }
 body > #header .header-bar {
     width: 100%;
     background: @notebook-bg;
@@ -545,11 +519,11 @@ span.checkpoint_status, span.autosave_status {
     display: none;
 }
 #menubar, div#menubar {
-    background-color: @notebook-bg;
+    // background-color: @notebook-bg;
     padding-top: 0px !important;
 }
 #menubar .navbar, .navbar-default {
-    background-color: @notebook-bg;
+    background-color: transparent; //@notebook-bg;
     margin-bottom: 0px;
     margin-top: 0px;
 }
@@ -567,7 +541,7 @@ p.navbar-text.indicator_area {
 .navbar-default {
     font-family: @notebook-fontfamily;
     font-size: @nb-fontsize;
-    background-color: @notebook-bg;
+    background-color: transparent; //@notebook-bg;
     border-color: @dropdown-hover;
     line-height: 1.5em;
     padding-bottom: 0px;
@@ -575,37 +549,42 @@ p.navbar-text.indicator_area {
 .navbar-default .navbar-nav > li > a {
     font-family: @notebook-fontfamily;
     font-size: @nb-fontsize;
-    color: @item-theme;
+    color: @notebook-fg;
     display: block;
     line-height: 1.5em;
-    padding-top: 14px;
-    padding-bottom: 11px;
+    // padding-top: 14px;
+    // padding-bottom: 11px;
+    background-color: rgba(78, 162, 204, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    margin-right: 15px;
+    border-radius: 8px;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: @item-theme !important;
-    background-color: transparent !important;
-    // border-color: @dropdown-hover !important;
-    // line-height: 1.5em;
+    color: @selected-fg !important;
+    background-color: rgba(78, 162, 204, 0.2);
+    border-color: @dropdown-hover !important;
+    line-height: 1.5em;
     transition: 80ms ease;
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-    color: @item-theme;
-    background-color: transparent; //@navbar-selected;
+    color: @selected-fg-bright;
+    background-color: rgba(78, 162, 204, 0.2); //@navbar-selected;
     // border-color: @dropdown-bg; //@navbar-selected;
-    // line-height: 1.5em;
+    line-height: 1.5em;
+    height: 48px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 .navbar-nav > li > .dropdown-menu {
-    margin-top: 4px;
+    margin-top: 0px;
 }
 .navbar-nav {
     margin: 0;
-}
-
-#tab_content{
-    padding-top: 0px;
+    margin-left: 10px;
+    margin-top: 5px;
 }
 
 
@@ -667,10 +646,6 @@ div.notification_widget {
     color: @button-color !important;
 }
 
-#notebook_name{
-    visibility: hidden;
-}
-
 /* COMMENT OUT TO RESTORE START-UP NOTIFICATIONS */
 div.notification_widget.info,
 .notification_widget.info {
@@ -703,8 +678,7 @@ div.notification_widget.info,
     display: inherit;
 }
 .item_buttons .running-indicator {
-    padding-top: 0px;
-    margin-right: 40px;
+    padding-top: 4px;
     color: @item-green;
     font-family: @notebook-fontfamily;
     text-rendering: auto;
@@ -717,7 +691,7 @@ div.notification_widget.info,
     background: transparent;
     background-color: transparent;
     margin-bottom: 0px !important;
-    // margin-top: 12px !important;
+    margin-top: 8px !important;
     vertical-align: bottom !important;
     color: @disabled !important;
     cursor: default !important;
@@ -745,21 +719,31 @@ div#notification_notebook.notification_widget.btn.btn-xs.navbar-btn {
 }
 #kernel_indicator {
     float: right !important;
-    color: @item-theme;
-    background: @notebook-bg;
-    background-color: @notebook-bg;
-    border-left: 2px solid @item-theme;
+    color: rgb(39,134,243);
+    // background: @notebook-bg;
+    // background-color: @notebook-bg;
+    // border-left: 2px solid rgb(39,134,243);
+    border-color: transparent;
     padding-top: 0px;
     padding-bottom: 4px;
-    margin-top: 10px !important;
+    margin-top: 5px !important;
+    margin-right: 0px !important;
     margin-left: -2px;
     padding-left: 5px !important;
+    padding-right: 5px;
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(78, 162, 204, 0.2);
+    height: 38px;
+    padding-top: 3px;
+    border-radius: 10px;
+    // border-bottom-right-radius: 10px;
+   
 }
 #kernel_indicator .kernel_indicator_name {
     font-size: 17px;
-    color: @item-theme;
-    background: @notebook-bg;
-    background-color: @notebook-bg;
+    color: rgb(39,134,243);
+    // background: @notebook-bg;
+    // background-color: @notebook-bg;
     padding-left: 5px;
     padding-right: 5px;
     margin-top: 4px;
@@ -778,9 +762,10 @@ div#notification_notebook.notification_widget.btn.btn-xs.navbar-btn {
     -webkit-font-smoothing: antialiased;
     cursor: pointer;
     margin-left: 0px !important;
+    margin-bottom: 2px;
     opacity: 0.7;
     vertical-align: bottom;
-    margin-top: 1px;
+    margin-top: 0px;
     content: "\f1db";
 }
 .kernel_busy_icon:before {
@@ -793,8 +778,9 @@ div#notification_notebook.notification_widget.btn.btn-xs.navbar-btn {
     -webkit-font-smoothing: antialiased;
     cursor: pointer;
     margin-left: 0px !important;
+    margin-bottom: 2px;
     vertical-align: bottom;
-    margin-top: 1px;
+    margin-top: 0px;
     content: "\f111";
 }
 @-webkit-keyframes pulsate {
@@ -869,71 +855,44 @@ i.fa.fa-icon {
     box-shadow: none;
     padding: 0px;
     text-align: left;
-    border: 0px solid @dropdown-bg;
-    border-radius: 12px !important;
-    background-color: @dropdown-bg;
-    background: @dropdown-bg;
+    border: none;
+    background-color: rgba(78, 162, 204, 0.2);//@dropdown-bg;
     line-height: 1;
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border-top-right-radius: 10px !important;
 }
 
-.dropdown-menu:hover {
-    font-family: @notebook-fontfamily;
-    font-size: @nb-fontsize;
-    box-shadow: none;
-    padding: 0px;
-    text-align: left;
-    border: 0px solid @dropdown-bg;
-    border-radius: 12px !important;
-    background-color: transparent;
-    box-shadow: none;
-    line-height: 1;
-}
+// .dropdown-menu:hover {
+//     font-family: @notebook-fontfamily;
+//     font-size: @nb-fontsize;
+//     box-shadow: none;
+//     padding: 0px;
+//     text-align: left;
+//     border: none;
+//     background-color: @dropdown-bg;
+//     box-shadow: none;
+//     line-height: 1;
+// }
 .dropdown-menu > li > a {
     font-family: @notebook-fontfamily;
     font-size: @nb-fontsize-sub;
     // line-height: 1.1;
-    min-width: 200px;
     display: block;
-    padding: 10px 30px 10px 15px;
-    color: black;
-    background-color: @dropdown-bg;
-    background: @dropdown-bg;
+    padding: 10px 20px 9px 10px;
+    color: @notebook-fg;
+    background-color: transparent;//@dropdown-bg;
+    background: none;//@dropdown-bg;
+    // -webkit-backdrop-filter: blur(10px);
 }
-
-.dropdown-menu > li:last-child:not(:first-child) > a {
-    border-bottom-right-radius: 10px !important;
-    border-bottom-left-radius: 10px !important;
-}
-
-.dropdown-menu > li:last-child:first-child > a {
-    border-radius: 10px !important;
-}
-
-.dropdown-menu > li:first-child:not(:last-child) > a {
-    border-top-right-radius: 10px !important;
-    border-top-left-radius: 10px !important;
-}
-
-.dropdown-menu > :not(li.divider) + li > a,
-.dropdown-menu > :not(li.divider) + li > a:hover {
-    border-top: 0.5px solid #B1B1B1;
-}
-
-.dropdown-menu > li.divider {
-    border-top: 7px solid #DBDBDB;
-}
-
-#close_and_halt > a {
-    color: @ios-red;
-}
-
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
-    color: black;
-    background-color: @dropdown-bg;
-    background: @dropdown-bg;
-    border-color: @dropdown-bg;
-    // transition: 200ms ease;
+    color: @selected-fg;
+    // background-color: rgba(78, 162, 204, 0.2);
+    // background: rgba(78, 162, 204, 0.2);
+    background: transparent;
+    border-color: @dropdown-hover;
+    transition: 200ms ease;
 }
 .dropdown-menu .divider {
     height: 1px;
@@ -941,15 +900,16 @@ i.fa.fa-icon {
     overflow: hidden;
     background-color: @selected-half;
 }
-.dropdown-submenu > .dropdown-menu{
+.dropdown-submenu > .dropdown-menu {
     display: none;
     top: 2px !important;
     left: 100%;
     margin-top: -2px;
-    margin-left: 5px;
+    margin-left: 0px;
     padding-top: 0px;
     transition: 200ms ease;
-    // border-color:transparent;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
@@ -965,17 +925,16 @@ i.fa.fa-icon {
     white-space: nowrap;
 }
 .dropdown-submenu > a:after {
-    color: black;
+    color: @notebook-fg;
     margin-right: -16px;
-    padding-top: 2px;
-    content: "\f054";
+    margin-top: 0px;
     display: inline-block;
 }
 .dropdown-submenu:hover > a:after,
 .dropdown-submenu:active > a:after,
 .dropdown-submenu:focus > a:after,
 .dropdown-submenu:visited > a:after {
-    color: black;
+    color: @item-theme;
     margin-right: -16px;
     display: inline-block !important;
 }
@@ -1507,34 +1466,34 @@ select.form-control.select-xs {
     box-shadow: none;
 }
 
-/****************************************/
-/************** SCROLL BARS *************/
-/****************************************/
-div.output.output_scroll {
-    box-shadow: none;
-}
+// /****************************************/
+// /************** SCROLL BARS *************/
+// /****************************************/
+// div.output.output_scroll {
+//     box-shadow: none;
+// }
 
-::-webkit-scrollbar {
-    width: 11px;
-    max-height: 9px;
-    background-color: @scroll-trough;
-    border-radius: 3px;
-    border: none;
-}
+// ::-webkit-scrollbar {
+//     width: 11px;
+//     max-height: 9px;
+//     background-color: @scroll-trough;
+//     border-radius: 3px;
+//     border: none;
+// }
 
-::-webkit-scrollbar-track {
-    background: @scroll-trough;
-    border: none;
-    width: 11px;
-    max-height: 9px;
-}
-::-webkit-scrollbar-thumb {
-    border-radius: 2px;
-    border: none;
-    background: @scrollbar;
-    background-clip: content-box;
-    width: 11px;
-}
+// ::-webkit-scrollbar-track {
+//     background: @scroll-trough;
+//     border: none;
+//     width: 11px;
+//     max-height: 9px;
+// }
+// ::-webkit-scrollbar-thumb {
+//     border-radius: 2px;
+//     border: none;
+//     background: @scrollbar;
+//     background-clip: content-box;
+//     width: 11px;
+// }
 
 /******* Smooth Fonts ********/
 HTML, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, span, a {
