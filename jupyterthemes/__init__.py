@@ -49,7 +49,6 @@ def install_theme(theme=None,
                 nbname=False,
                 kernellogo=False,
                 dfonts=False):
-
     """ Install theme to jupyter_customcss with specified font, fontsize,
     md layout, and toolbar pref
     """

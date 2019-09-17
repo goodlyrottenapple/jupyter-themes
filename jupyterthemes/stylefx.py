@@ -553,7 +553,8 @@ def stored_font_dicts(fontcode, get_all=False):
               'robotosans': ['Roboto', 'robotosans'],
               'latosans': ['Lato', 'latosans'],
               'exosans': ['Exo_2', 'exosans'],
-              'proxima': ['Proxima Nova', 'proximasans']},
+              'proxima': ['Proxima Nova', 'proximasans'],
+              'sfpro': ['SF Pro Display', 'sfpro']},
              'serif':
              {'ptserif': ['PT Serif', 'ptserif'],
               'ebserif': ['EB Garamond', 'ebserif'],
