@@ -4,8 +4,8 @@
 
 /********** CODE CELL INPUT AREA **********/
 div.input_area {
-    background-color: @cc-input-bg;
-    background: @cc-input-bg;
+    background-color: @cc-text-cell-bg;
+    background: @cc-text-cell-bg;
     padding-right: 1.2em;
     border: 0px;
     border-radius: 0px;
@@ -80,14 +80,30 @@ div.cell.code_cell .input {
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
 }
+div.cell.code_cell.selected {
+    border: 1px solid @cc-border-selected !important;
+    border-radius: 3px;
+    margin-top:4px;
+    margin-bottom:4px;
+    padding-top:5px;
+    padding-bottom:5px;
+    margin-left: 2px;
+    margin-right: 5px;
+}
+div.cell.code_cell.unselected {
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-top:7px;
+    padding-bottom:7px;
+}
+
 div.cell.code_cell.selected .input {
-    border-left: 5px solid @cc-border-selected !important;
-    border-radius: 3px;
+    margin-right: 5px;
 }
-.edit_mode div.cell.code_cell.selected .input {
-    border-left: 5px solid @cc-border-edit !important;
-    border-radius: 3px;
-}
+// .edit_mode div.cell.code_cell.selected .input {
+//     border-left: 5px solid @cc-border-edit !important;
+//     border-radius: 3px;
+// }
 .edit_mode div.cell.selected:before {
     height: 100%;
     border-left: 5px solid @cc-border-edit !important;
@@ -171,9 +187,9 @@ div.prompt.input_prompt {
     width: @prompt-min-width !important;
 }
 
-div.cell.code_cell .input_prompt {
-    border-right: @prompt-border;
-}
+// div.cell.code_cell .input_prompt {
+//     border-right: @prompt-border;
+// }
 
 div.cell.selected .prompt {
     top: 0;
@@ -251,7 +267,7 @@ div.output_subarea.output_text {
     color: @cc-output-fg;
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
-    margin-left: 11.5px;
+    // margin-left: 11.5px;
 }
 div.output_area pre {
     font-family: @monofont, monospace;
@@ -375,7 +391,7 @@ div.cell.text_cell .CodeMirror-lines {
 }
 div.cell.text_cell.unrendered div.input_area,
 div.cell.text_cell.rendered div.input_area {
-    background-color: @text-cell-bg;
+    background-color: @cc-text-cell-bg;
     background: @text-cell-bg;
     border: 0px;
     border-radius: 2px;
