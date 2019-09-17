@@ -255,11 +255,21 @@ body > #header {
     border-bottom: 1px solid @selected-third;
     font-size: @nb-fontsize;
 }
-.list_header > div, .list_item > div {
+.list_header > div {
     padding-top: 6px;
     padding-bottom: 2px;
     padding-left: 0px;
 }
+.list_item {
+    position: relative;
+    min-height: 70px;
+}
+
+.list_item > div {
+    position: absolute;
+    top: 23%;
+}
+
 .list_header > div .item_link,
 .list_item > div .item_link {
     margin-left: -1px;
@@ -310,6 +320,7 @@ body > #header {
 }
 button#tree-selector-btn {
     height: 34px;
+    width: 40px;
     font-size: @nb-fontsize-sub;
     border: none;
     left: 0px;
