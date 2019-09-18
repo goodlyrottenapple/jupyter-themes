@@ -210,12 +210,11 @@ div.cell.selected .prompt {
 .run_this_cell {
     visibility: hidden;
     color: transparent;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 3px;
-    padding-right: 12px;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    padding-left: 6px !important;
+    padding-right: 19px !important;
     width: 1.5ex;
-    width: 0ex;
     background: transparent;
     background-color: transparent;
 }
@@ -225,13 +224,13 @@ div.code_cell:hover div.input .run_this_cell {
 }
 
 div.cell.code_cell.rendered.selected .run_this_cell:hover {
-    background-color: darken(@cc-input-bg, 4%);
-    background: darken(@cc-input-bg, 4%);
+    background-color: @cc-input-bg;
+    background: @cc-input-bg;
     color: @cc-border-selected !important;
 }
 div.cell.code_cell.rendered.unselected .run_this_cell:hover {
-    background-color: darken(@cc-input-bg, 4%);
-    background: darken(@cc-input-bg, 4%);
+    background-color: @cc-input-bg;
+    background: @cc-input-bg;
     color: @cc-border-selected !important;
 }
 
@@ -309,11 +308,11 @@ div.btn.btn-default.output_collapsed {
     margin: 5px;
     margin-left: 5px;
 }
-div.btn.btn-default.output_collapsed:hover {
-    background: @cc-text-cell-bg;
-    background-color: @cc-text-cell-bg;
-    // border-color: darken(@button-panel-bg, 7%);
-}
+// div.btn.btn-default.output_collapsed:hover {
+//     background: @cc-text-cell-bg;
+//     background-color: @cc-text-cell-bg;
+//     // border-color: darken(@button-panel-bg, 7%);
+// }
 
 /************ CODE CELL OUTPUT PROMPT ************/
 div.prompt.output_prompt {
@@ -392,7 +391,7 @@ div .text_cell_render {
 div.cell.text_cell .CodeMirror-lines {
     padding-top: .7em !important;
     padding-bottom: .4em !important;
-    padding-left: .5em !important;
+    padding-left: 0em !important;
     padding-right: .5em !important;
     margin-top: .4em;
     margin-bottom: .3em;
@@ -606,7 +605,7 @@ div.rendered_html h5 {
 .rendered_html h5:first-child,
 .rendered_html h6:first-child {
     margin-top: 0.2em !important;
-    margin-bottom: 0.2em !important;
+    margin-bottom: 0.6em !important;
 }
 .rendered_html h1,
 .text_cell_render h1 {
