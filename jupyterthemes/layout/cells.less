@@ -302,14 +302,17 @@ div.output_subarea {
     flex: 1;
 }
 div.btn.btn-default.output_collapsed {
-    background: darken(@button-panel-bg, 5%);
-    background-color: darken(@button-panel-bg, 5%);
-    border-color: darken(@button-panel-bg, 5%);
+    background: @notebook-bg;
+    background-color: @notebook-bg;
+    border-width: 0;
+    border-radius:4px;
+    margin: 5px;
+    margin-left: 5px;
 }
 div.btn.btn-default.output_collapsed:hover {
-    background: darken(@button-panel-bg, 7%);
-    background-color: darken(@button-panel-bg, 7%);
-    border-color: darken(@button-panel-bg, 7%);
+    background: @cc-text-cell-bg;
+    background-color: @cc-text-cell-bg;
+    // border-color: darken(@button-panel-bg, 7%);
 }
 
 /************ CODE CELL OUTPUT PROMPT ************/
